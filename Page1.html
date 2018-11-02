@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE.html>
+<html>
+<head>   <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("back5.png");
+       height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#wrapper{
+    display: block;
+    margin: auto;
+    font-size: 40px;
+    font-family: 'Merriweather', serif;
+}
+.flip-card {
+    padding-top: 200px;
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+ 
+    position: fixed;
+    opacity: 25%;
+     display: block;
+    margin: auto;
+    border-radius: 20%;
+
+}
+a:hover{
+    color: red;
+}
+#login{
+
+                height: 40px;
+                padding: 5px 5px 12px 5px;
+                font-size: 20px;
+                border-radius: 5px;
+                border: 1px solid grey;
+                width: 70px;
+                float: right;
+                position: relative;
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 #CCCCFF;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: rgb(255,182,193);
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+#navbar{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 50px;
+        width: 100%;
+        background-color:rgb(207,181,59,0.4);
+    }
+nav ul {
+    margin: 0px;
+    padding: 5px 0px 30px 30px;
+  }
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    position: center;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    width: 600px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+#inlogin{
+    color:  #585858;
+    text-align: center;
+    font-size: 20px;
+}
+#cardtwo{
+
+    width:400px;
+    align-content: center;
+    padding:8px 12px;
+    border-color: black;
+}
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p>HEY</p>
+          <p>Need to talk?</p>
+        </div>
+        <div class="flip-card-back">
+          <h1>CALL<span class="glyphicon glyphicon-earphone"></span></h1> 
+          <p>
+            <a href="file:///C:/Users/Ananya/Desktop/A/IET_Hackathon/page2.html">022 2754 6669</a></p> 
+          <p>AASRA</p>
+        </div>
+      </div>
+    </div>
+</div>
+<hr>
+<hr>
+    <button id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><center>Login</center></button>
+
+    <div id="id01" class="modal">
+      
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          
+        </div>
+
+     <div class="container">
+        <div id="inlogin">Login in to connect to yourself</div>
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+            
+          <button type="submit">Login</button>
+          <label>
+         <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+
+        </div>
+        <div id="inlogin">
+        OR</div>
+        <div class="container">
+            <div id="inlogin">connect anonymously</div>
+          <label for="uname"><b>Name</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label for="psw"><b>Phone Number</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+            
+          <button type="submit">Login</button>
+        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+        </div>
+      </form>
+    </div>
+<!--<nav id="navbar">
+    <ul>
+        <li id="">Home</li>
+        <li>Lets Talk</li>
+        <li>blah</li>
+    </ul>-->
+<div class="parallax"></div>
+<div style="font-family: 'Gloria Hallelujah', cursive; font-size: 40px; text-align: center;"> <br><u>Remember</u>    <ul>
+        <li>You are amazing.</li>
+        <li>You can do anything.</li>
+        <li>Positivity is a choice.</li>
+        <li>Celebrate your indiviuality.</li>
+        <li>You will succeed!</li>
+    </ul>
+    <p>
+
+    <a href="blahblah@gmail.com">
+          <span class="glyphicon glyphicon-envelope"></span>
+        </a>
+        <t><t><t>
+  <a href=tel:123644885>
+          <span class="glyphicon glyphicon-earphone"></span>
+        </a>
+</p>
+    <br>
+    <p>And just share</p>
+<br><br>
+    <a href="#>
+          <span class="glyphicon glyphicon-refresh">  Refresh Your Life Starting Now. </span>
+        </a>
+</t></t></t></p>
+<hr>
+</div>
+<div id="cardtwo"><img src="custom.jpg"><h3>Customer Care</h3></div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+if (window.location.hash)
+    scroll(0,0);
+// takes care of some browsers issue
+setTimeout(function(){scroll(0,0);},1);
+
+$(function(){
+//your current click function
+$('.scroll').on('click',function(e){
+    e.preventDefault();
+    $('html,body').animate({
+        scrollTop:$($(this).attr('href')).offset().top + 'px'
+    },1000,'swing');
+});
+
+// if we have anchor on the url (calling from other page)
+if(window.location.hash){
+    // smooth scroll to the anchor id
+    $('html,body').animate({
+        scrollTop:$(window.location.hash).offset().top + 'px'
+        },1000,'swing');
+    }
+});
+</script>
+</body>
+</html>
+
